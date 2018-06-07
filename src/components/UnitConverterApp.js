@@ -11,7 +11,7 @@ const Header = (props) => (
 )
 
 const Options = (props) => (
-  <select name="length" size="1" onChange={props.convertFromUnitHandler}>             
+  <select name="length" size="1" onChange={props.convertFromUnitHandler || props.convertToUnitHandler}>             
    {props.units.length.map( x =>  <option key={x} name={x}> {x}</option> )}              
   </select>
 )
@@ -23,7 +23,7 @@ const Converter = (props) => (
             <p>from </p>
             <form   >
               <input 
-                type='text' 
+                type='number' 
                 name='fromTextInput' 
                 onChange={props.convertFromHandler}
                 defaultValue={1} 
@@ -41,10 +41,13 @@ const Converter = (props) => (
           </div>
 
           <div className='to'>
-            <p>to {props.result}</p>
+            <p>to </p>
             <form >
-              <input type='text' name='toTextInput' />
-              <Options units={props.units} />
+              <input type='number' name='toTextInput' value={props.result} />
+              <Options 
+                units={props.units} 
+                convertToUnitHandler={props.convertToUnitHandler}
+              />
             </form>
           </div>
 
@@ -60,8 +63,9 @@ class UnitConverterApp extends Component {
       mass: ['mcg', 'mg', 'g', 'kg', 'oz', 'lb', 'mt', 't'],
       temperature: ['C', 'F', 'K', 'R'],  
     },
-    unitPicked: 'mm',
-    valEntered: 1
+    valEntered: 1,
+    fromUnitPicked: 'mm',
+    toUnitPicked: 'mm'
   }
 
   
@@ -70,7 +74,15 @@ class UnitConverterApp extends Component {
     const u = e.target.value
     console.log('convertFromUnitHandler called', u)
     this.setState( () => ({
-      unitPicked: u
+      fromUnitPicked: u
+    }))
+  }
+  convertToUnitHandler = (e) => {
+    e.preventDefault()
+    const u = e.target.value
+    console.log('convertToUnitHandler called', u)
+    this.setState( () => ({
+      toUnitPicked: u
     }))
   }
 
@@ -78,7 +90,7 @@ class UnitConverterApp extends Component {
     e.preventDefault()
     const val = e.target.value
     console.log('convertFromHandler called', val)
-    this.setState(() => ({
+    this.setState( () => ({
       valEntered: val
     }))
   }
@@ -93,7 +105,10 @@ class UnitConverterApp extends Component {
           units={this.state.units}
           convertFromHandler={this.convertFromHandler}
           convertFromUnitHandler={this.convertFromUnitHandler}
-          result={convert(this.state.valEntered).from(this.state.unitPicked).to('m')}
+          convertToUnitHandler={this.convertToUnitHandler}
+          result = {
+            convert(this.state.valEntered).from(this.state.fromUnitPicked).to(this.state.toUnitPicked)
+          }
         />
 
       </div>
