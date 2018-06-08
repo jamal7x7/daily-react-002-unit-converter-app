@@ -65,11 +65,11 @@ const Converter = (props) => (
 const Nav = (props) => (
   <div className='navContainer'>
     <div className='nav'>
-      <p className='length'>Length</p>
-      <p>Mass</p>
-      <p>Pressure</p>
-      <p>Tempurature</p>
-      <p>Speed</p>
+      <div className='length'>Length</div>
+      <div>Mass</div>
+      <div>Pressure</div>
+      <div>Tempurature</div>
+      <div>Speed</div>
     </div>
     
   </div>
@@ -89,7 +89,6 @@ class UnitConverterApp extends Component {
     valOut: 1
   }
 
-  
   convertFromUnitHandler = (e) => {
     e.preventDefault()
     const u = e.target.value
@@ -124,7 +123,6 @@ class UnitConverterApp extends Component {
     }))
   }
 
-  
   render() {
     return (
       <div className="App">
