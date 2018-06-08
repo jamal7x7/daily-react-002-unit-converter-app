@@ -1,5 +1,6 @@
 body {
-  background-color: #413827;
+  background: #041A3E;
+  color:#062659;
 }
 
 .App {
@@ -12,14 +13,19 @@ body {
 }
 
 .App-header {
-  background-color: #ED4300;
+  background-image: linear-gradient(-225deg, #DD8EDA 0%, #42A3F9 100%);
   height: 150px;
   padding: 20px;
   color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 1.5rem;
+
 }
 
 .App-intro {
@@ -32,19 +38,87 @@ body {
 }
 
 .convertContainer {
-  background-color: #F4E9D3;
-  margin: 3rem;
+  background-image: linear-gradient(-225deg, #DD8EDA 0%, #42A3F9 100%);
+  margin: 10rem auto;
   padding: 2rem;
+  width: 665px;
+  height: 200px;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+  
 }
 
 .from {
   padding: 0.5rem;
+  text-align: left;
+  flex-wrap: wrap;
+  color: #062659;
 }
-.-> {
-  padding: 0.5rem;
-}
+
 .to {
   padding: 0.5rem;
+  text-align: left;
+  flex-wrap: wrap;
+  color: #062659;
 }
+
+input {
+ 
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid #062659;
+  padding: 1rem;
+  font-size: 1rem;
+
+}
+
+
+.select select {
+  outline: none;
+  -webkit-appearance: none;
+  display: block;
+  padding: 1rem 3rem 1rem 1em;
+  margin: 0;
+  transition: border-color 0.2s;
+ 
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid #062659;
+  border-radius: 0px;
+  
+  color: #062659;
+  line-height: normal;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.select {
+  font-size: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.select .arr {
+  
+  bottom: 5px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 50px;
+  pointer-events: none;
+}
+
+
+.select .arr:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 28px;
+  margin-top: -5px;
+  pointer-events: none;
+  border-top: 6px solid #062659;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+}
+
+
