@@ -1,6 +1,7 @@
 body {
   background: #041A3E;
   color:#062659;
+  font-family: lato,sans-serif;
 }
 
 .App {
@@ -39,28 +40,32 @@ body {
 
 .convertContainer {
   background-image: linear-gradient(-225deg, #DD8EDA 0%, #42A3F9 100%);
-  margin: 10rem auto;
+  margin: 5rem auto;
   padding: 2rem;
-  width: 665px;
+  width: 60%;
   height: 200px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   flex-wrap: wrap;
+  box-shadow: 0px 40px 30px -20px black
   
 }
 
 .from {
   padding: 0.5rem;
   text-align: left;
-  flex-wrap: wrap;
   color: #062659;
 }
 
 .to {
   padding: 0.5rem;
   text-align: left;
-  flex-wrap: wrap;
   color: #062659;
+}
+
+h5 {
+  margin: 0.2rem 0.5rem;
 }
 
 input {
@@ -122,3 +127,21 @@ input {
 }
 
 
+.nav {
+  
+  
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+.navContainer {
+  background: #062659;
+  opacity: 0.5;
+  font-family: Lato-Medium;
+  font-size: 16px;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  
+}

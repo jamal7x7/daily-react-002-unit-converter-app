@@ -24,7 +24,7 @@ const Converter = (props) => (
   <div className='convertContainer'>
 
           <div className='from'>
-            <p>From </p>
+            <h5 className>From </h5>
             <form   >
               <input 
                 type='number' 
@@ -43,7 +43,7 @@ const Converter = (props) => (
         
 
           <div className='to'>
-            <p>To </p>
+            <h5>To </h5>
             <form >
               <input 
                 type='number' 
@@ -60,6 +60,19 @@ const Converter = (props) => (
 
     </div>  
       
+)
+
+const Nav = (props) => (
+  <div className='navContainer'>
+    <div className='nav'>
+      <p>Length</p>
+      <p>Mass</p>
+      <p>Pressure</p>
+      <p>Tempurature</p>
+      <p>Speed</p>
+    </div>
+    
+  </div>
 )
 
 class UnitConverterApp extends Component {
@@ -117,6 +130,7 @@ class UnitConverterApp extends Component {
       <div className="App">
       
         <Header />
+        <Nav />
         <Converter 
           units={this.state.units}
           convertFromHandler={this.convertFromHandler}
